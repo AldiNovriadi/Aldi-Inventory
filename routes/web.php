@@ -63,3 +63,6 @@ Route::get('/cekbilangan/{bilangan}', function ($bilangan) {
 Route::get('/deretbilangan/{deret}', function ($deret) {
     return "deret";
 });
+
+// STUDI KASUS CONTROLER NAME
+Route::get('/person', 'PersonController@index');
