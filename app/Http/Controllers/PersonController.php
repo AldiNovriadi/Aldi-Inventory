@@ -14,4 +14,10 @@ class PersonController extends Controller
         // Mengembalikan nilai attribute name
         return $this->name;
     }
+
+    public function show($param) {
+        // Merubah attribute name
+        $this->name = $param;
+        return $this->name;
+    }
 }

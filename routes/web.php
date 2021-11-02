@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PersonController;
+use App\Http\Controllers\StudentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,7 +20,7 @@ Route::get('/', function () {
 });
 
 // ROUTING BARU
-Route::get('/zdarks', function() {
+Route::get('/zdarks', function () {
     echo "Hello Zdarks";
 });
 
@@ -40,7 +42,7 @@ Route::get('/name/{name}', function ($name) {
 // STUDI KASUS NUMERIC dan ABJAD
 Route::get('/{nrp}/{nama}', function ($nrp, $nama) {
     return "Hallo " . $nrp . " " . $nama;
-})->where('nrp', '[0-9]+') ->where('nama', '[A-Za-z]+');
+})->where('nrp', '[0-9]+')->where('nama', '[A-Za-z]+');
 
 // STUDI KASUS NUMERIC dan ABJAD Versi 2
 Route::get('/00/{nrp}/{nama}', function ($nrp, $nama) {
@@ -52,9 +54,9 @@ Route::get('/00/{nrp}/{nama}', function ($nrp, $nama) {
 
 // STUDI KASUS BILANGAN
 Route::get('/cekbilangan/{bilangan}', function ($bilangan) {
-    If ($bilangan % 2 == 0) {
+    if ($bilangan % 2 == 0) {
         return "Bilangan tersebut Genap";
-    }else{
+    } else {
         return "Bilangan tersebut Ganjil";
     }
 });
@@ -65,4 +67,10 @@ Route::get('/deretbilangan/{deret}', function ($deret) {
 });
 
 // STUDI KASUS CONTROLER NAME
-Route::get('/person', 'PersonController@index');
+Route::get('/person', [PersonController::class, 'index']);
+
+// STUDI KASUS CONTROLER PARAM
+Route::get('/person/show/{param}', [PersonController::class, 'show']);
+
+// STUDI KASUS CONTROLLER STUDENT
+Route::resource('/student', StudentController::class);
