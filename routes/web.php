@@ -74,3 +74,14 @@ Route::get('/person/show/{param}', [PersonController::class, 'show']);
 
 // STUDI KASUS CONTROLLER STUDENT
 Route::resource('/student', StudentController::class);
+
+// ROUTE - VIEW
+Route::get('/homepage', function () {
+    return view('home', ["name" => "Aldi Novriadi"]);
+});
+
+Route::get('/person/send-data', [PersonController::class, 'sendData']);
+
+
+// TUGASSSSS
+Route::get('/013', [StudentController::class, 'myCourse']);
