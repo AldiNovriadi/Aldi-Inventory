@@ -84,4 +84,8 @@ Route::get('/person/send-data', [PersonController::class, 'sendData']);
 
 
 // TUGASSSSS
-Route::get('/013', [StudentController::class, 'myCourse']);
+Route::get('/my-academic/{course}/{task}/{quiz}/{mid_term}/{final}', [StudentController::class, 'myCourse']);
+
+// SESI 6 dan 7
+Route::get('/person/add', [PersonController::class, 'add']);
+Route::post('/person/addProcess', [PersonController::class, 'addProcess']);

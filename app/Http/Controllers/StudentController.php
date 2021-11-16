@@ -20,4 +20,10 @@ class StudentController extends Controller
         $this->grade = $this->calculateGrade();
         return view("student/my_view", ['code' => $this->code, 'name' => $this->name, 'course' => $this->course]);
     }
+
+    private function calculateGrade()
+    {
+        $nilaiAkhir = ($this->task * 0.1) + ($this->quiz * 0.1) + ($this->mid_term * 0.3) + ($this->final * 0.5);
+        return $nilaiAkhir;
+    }
 }
